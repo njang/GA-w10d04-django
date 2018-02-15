@@ -6,6 +6,11 @@
   <body>
     <h1>TreasureGram</h1>
     <hr />
+    {% for treasure in treasures %}
+	  <p>Name: {{ treasure.name }}</p>
+	  <p>Value: {{ treasure.value}}</p>
+	  <hr />
+	{% endfor %}
     <footer>All Rights Reserved, TreasureGram 2018</footer>
   </body>
  </html>
