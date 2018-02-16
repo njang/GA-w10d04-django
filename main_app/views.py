@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Treasure
 from .forms import TreasureForm
 
@@ -15,6 +15,7 @@ def show(request, treasure_id):
 def post_treasure(request):
     form = TreasureForm(request.POST)
     if form.is_valid():
+        # treasure.save(commit=True)
         treasure = Treasure(
             name=form.cleaned_data['name'],
             value=form.cleaned_data['value'],
