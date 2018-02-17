@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <h2> Name: {{ treasure.name}}</h1>
+    <p> Value: {{ treasure.value }}</p>
+    <p> Material: {{ treasure.material }}</p>
+    <p> Location: {{ treasure.location }}</p>
+    <hr />
+{% endblock %}

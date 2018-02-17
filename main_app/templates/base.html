@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>TreasureGram</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <a href='/'><h1>TreasureGram</h1></a>
+    <hr />
+    {% block content %}
+    {% endblock %}
+    <hr />
+    {% if user.is_authenticated %}
+      <a href="{% url 'profile' user.username %}">Hello, {{ user.username }}!</a> |
+      <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+      <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    <footer>All Rights Reserved, TreasureGram 2018</footer>
+  </body>
+ </html>    
