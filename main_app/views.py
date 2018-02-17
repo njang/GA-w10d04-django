@@ -21,6 +21,7 @@ def post_treasure(request):
             material=form.cleaned_data['material'],
             location=form.cleaned_data['location'])
         treasure.save()
+        # treasure.save(commit = True)
     return HttpResponseRedirect('/')
 
 # class Treasure:
