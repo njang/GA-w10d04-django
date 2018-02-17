@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TreasureGram</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" / />
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <h1>TreasureGram</h1>
+    <h2> Name: {{ treasure.name}}</h1>
+    <p> Value: {{ treasure.value }}</p>
+    <p> Material: {{ treasure.material }}</p>
+    <p> Location: {{ treasure.location }}</p>
+  </body>
+</html>

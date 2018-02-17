@@ -1,18 +1,35 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Treasure
 
 def index(request):
-	return render(request, 'index.html', {'treasures': treasures})
+    treasures = Treasure.objects.all()
+    return render(request, 'index.html', {'treasures': treasures})
 
-class Treasure:
-    def __init__(self, name, value, material, location):
-        self.name = name
-        self.value = value
-        self.material = material
-        self.location = location
+def show(request, treasure_id):
+    treasure = Treasure.objects.get(id=treasure_id)
+    return render(request, 'show.html', {'treasure': treasure}) 
 
-treasures = [
-    Treasure('Gold Nugget', 500.00, 'gold', "Curly's Creed, NM"),
-    Treasure("Fool's Gold", 0, 'pyrite', "Fool's Falls, CO"),
-    Treasure('Coffee Can', 20.00, 'tin', "Acme, CA")
-]
+def post_treasure(request):
+    form = TreasureForm(request.POST)
+    if form.is_valid():
+        treasure = Treasure(
+            name=form.cleaned_data['name'],
+            value=form.cleaned_data['value'],
+            material=form.cleaned_data['material'],
+            location=form.cleaned_data['location'])
+        treasure.save()
+    return HttpResponseRedirect('/')
+
+# class Treasure:
+#     def __init__(self, name, value, material, location):
+#         self.name = name
+#         self.value = value
+#         self.material = material
+#         self.location = location
+
+# treasures = [
+#     Treasure('Gold Nugget', 500.00, 'gold', "Curly's Creed, NM"),
+#     Treasure("Fool's Gold", 0, 'pyrite', "Fool's Falls, CO"),
+#     Treasure('Coffee Can', 20.00, 'tin', "Acme, CA")
+# ]
