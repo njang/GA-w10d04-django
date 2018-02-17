@@ -4,6 +4,9 @@
 {% for treasure in treasures %}
 	<a href="/{{treasure.id}}">
 		<p>Name: {{ treasure.name }}</p>
+	    <a href="/user/{{treasure.user.username}}"
+	      <p>Found By: {{treasure.user.username }}</p>
+	    </a>
 		{% if treasure.value > 0 %}
 			<p>Value: {{ treasure.value}}</p>
 		{% else %}
