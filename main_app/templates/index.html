@@ -1,22 +1,13 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-  <head>
-	<title>TreasureGram</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-  </head>
-  <body>
-    <h1>TreasureGram</h1>
-    <hr />
-    {% for treasure in treasures %}
-		<p>Name: {{ treasure.name }}</p>
-		{% if treasure.value > 0 %}
-			<p>Value: {{ treasure.value}}</p>
-		{% else %}
-			<p>Value: Unknown</p>
-		{% endif%}
-		<hr />
+{% block content %}
+  {% for treasure in treasures %}
+  <p>Name: {{ treasure.name }}</p>
+  {% if treasure.value > 0 %}
+    <p>Value: {{ treasure.value}}</p>
+  {% else %}
+    <p>Value: Unknown</p>
+  {% endif%}
+  <hr />
 {% endfor %}
-    <footer>All Rights Reserved, TreasureGram 2017</footer>
-  </body>
- </html>
+{% endblock %}  
