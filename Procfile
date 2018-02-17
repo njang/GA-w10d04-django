@@ -1,1 +1,1 @@
-web: gunicorn Treasuregram.wsgi
+web: gunicorn Treasuregrams.wsgi
