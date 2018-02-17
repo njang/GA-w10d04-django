@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Treasure
+from .forms import TreasureForm
 
 def index(request):
     treasures = Treasure.objects.all()
-    return render(request, 'index.html', {'treasures': treasures})
+    form = TreasureForm()
+    return render(request, 'index.html', {'treasures': treasures, 'form':form})
 
 def show(request, treasure_id):
     treasure = Treasure.objects.get(id=treasure_id)
