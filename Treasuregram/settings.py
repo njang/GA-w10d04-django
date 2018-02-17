@@ -1,5 +1,5 @@
 """
-Django settings for Treasuregrams project on Heroku. For more info, see:
+Django settings for Treasuregram project on Heroku. For more info, see:
 https://github.com/heroku/heroku-django-template
 
 For more information on this file, see
@@ -21,7 +21,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "nkig(c@!%c!9zk4ac%ll4f8q=7e4)1+a2r=-%exo2uj#la4896"
+SECRET_KEY = "s0q1-#=ur5f1zo1!tm4)hh8dcb6xwvd2q!2%l-6+_2l+nk0ys@"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Treasuregrams.urls'
+ROOT_URLCONF = 'Treasuregram.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Treasuregrams.wsgi.application'
+WSGI_APPLICATION = 'Treasuregram.wsgi.application'
 
 
 # Database
