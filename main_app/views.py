@@ -15,13 +15,13 @@ def show(request, treasure_id):
 def post_treasure(request):
     form = TreasureForm(request.POST)
     if form.is_valid():
-        treasure = Treasure(
-            name=form.cleaned_data['name'],
-            value=form.cleaned_data['value'],
-            material=form.cleaned_data['material'],
-            location=form.cleaned_data['location'])
-        treasure.save()
-        # treasure.save(commit = True)
+        # treasure = Treasure(
+        #     name=form.cleaned_data['name'],
+        #     value=form.cleaned_data['value'],
+        #     material=form.cleaned_data['material'],
+        #     location=form.cleaned_data['location'])
+        # treasure.save()
+        form.save(commit = True)
     return HttpResponseRedirect('/')
 
 # class Treasure:
