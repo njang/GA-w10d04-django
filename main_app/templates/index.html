@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-  {% for treasure in treasures %}
-  <p>Name: {{ treasure.name }}</p>
-  {% if treasure.value > 0 %}
-    <p>Value: {{ treasure.value}}</p>
-  {% else %}
-    <p>Value: Unknown</p>
-  {% endif%}
-  <hr />
+{% for treasure in treasures %}
+	<a href="/{{treasure.id}}">
+		<p>Name: {{ treasure.name }}</p>
+		{% if treasure.value > 0 %}
+			<p>Value: {{ treasure.value}}</p>
+		{% else %}
+			<p>Value: Unknown</p>
+		{% endif%}
+	</a>
+  	<hr />
 {% endfor %}
 {% endblock %}  
