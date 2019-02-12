@@ -8,12 +8,12 @@ Let's install it!
 
 `pip3 install django`
 
-# Lets create Treasuregram w/ Django!
+# Let\'s create Treasuregram w/ Django!
 
 1. Create a Django application with the following command:
 
 	```bash
-		django-admin startproject Treasuregram
+	django-admin startproject Treasuregram
 	```
 
 	This will create a folder labeled Treasuregram as well as a few support files and a folder within with the same name. Spend some time familiarizing yourself with the file structure.
@@ -24,15 +24,15 @@ Let's install it!
 2.  To see a barebones website automatically created for us run the following command:
 
 	```bash
-		python3 manage.py runserver
+	python3 manage.py runserver
 	```
 
 	Head to the location given in your terminal and you should see a boilerplate greeting page for Django!
 
-3.  We have created a **project** for django but not an **application**. In Django a project consists of many smaller applications (think of them as widgets.) Lets use the manage.py utility `startapp` to create our first `app` inside our Django `project`:
+3.  We have created a **project** for django but not an **application**. In Django a project consists of many smaller applications (think of them as widgets.) Let's use the manage.py utility `startapp` to create our first `app` inside our Django `project`:
 
 	```bash
-		python3 manage.py startapp main_app
+	python3 manage.py startapp main_app
 	```
 
 	This will create a folder for `main_app` and many support files inside. Let's check them out!
@@ -48,7 +48,7 @@ Let's install it!
 		return HttpResponse('<h1>Hello Explorers!</h1>')
 	```
 
-5.  Now we will map this particular view to a url.  We want to use the route `/index` for now as an example.  Lets add a url for our view in the `url dispatcher` file in `Treasuregram/Treasuregram/urls.py`:
+5.  Now we will map this particular view to a url.  We want to use the route `/index` for now as an example.  Let's add a url for our view in the `url dispatcher` file in `Treasuregram/Treasuregram/urls.py`:
 
 	```python
 	# Treasuregram/Treasuregram/urls.py
@@ -64,10 +64,10 @@ Let's install it!
 	]
 	```
 
-	The r is a regular expression matcher that will listen for a route that matches the particular pattern in the first argument. The second argument is the spcific path to the view function we want to associate with our route.
+	The `r` is a regular expression matcher that will listen for a route that matches the particular pattern in the first argument. The second argument is the spcific path to the view function we want to associate with our route.
 
 
-6.  The route `/index` is great for debugging and proof of concepts but lets make this mirror the normal pattern of launching the index view when we hit the `/` route. In the urlpatterns array change the following:
+6.  The route `/index` is great for debugging and proof of concepts but let's make this mirror the normal pattern of launching the index view when we hit the `/` route. In the urlpatterns array change the following:
 
 	```python
 	# Treasuregram/Treasuregram/urls.py
@@ -84,7 +84,7 @@ Let's install it!
 
 	Now head to the `/` root route and you should see our greeting! Sweet!
 
-7.  Too keep our routes clean and separated in an orderly fashion we will now separate our routes into our separate `apps` away from the main url dispatcher in `Treasuregram`.  
+7.  To keep our routes clean and separated in an orderly fashion we will now separate our routes into our separate `apps` away from the main url dispatcher in `Treasuregram`.  
 
 
 	```python
@@ -113,7 +113,7 @@ Let's install it!
 	```
 
 
-# Lets start showing data!
+# Let\'s start showing data!
 
 1.  We will now start working on our front-end view and templating.   We have a bit of a shopping list of actions to do within our app.  
 
@@ -155,7 +155,7 @@ Let's install it!
 
 	- In our `views.py` we will now be **rendering** our template instead of sending HTTP responses, so so we can update our views.py to only import render from django.shortcuts.  Feel free to delete the line importing HttpResponse.
 
-	- Finally, in our index function in our views.py file, lets update the render to show our index.html:
+	- Finally, in our index function in our views.py file, let's update the render to show our index.html:
 
 	```python
 	def index(request):
@@ -164,7 +164,7 @@ Let's install it!
 	```
 
 
-1.  In `views.py` lets create a Treasure class with all of the attributes we want to see displayed on our index page. We can also create an array of Treasure objects to populate our view. Add this code to the bottom of the file.
+1.  In `views.py` let's create a Treasure class with all of the attributes we want to see displayed on our index page. We can also create an array of Treasure objects to populate our view. Add this code to the bottom of the file.
 
 	```python
 	# main_app/views.py
@@ -207,7 +207,7 @@ Let's install it!
 	Check out our index file on your browser and you should see our treasures displayed on the screen!
 
 
-4. Lets add some conditional checking to format our values.  If we have a 0 value treasure, lets set it to display 'Unknown':
+4. Let's add some conditional checking to format our values.  If we have a 0 value treasure, let's set it to display 'Unknown':
 
 	```html
 	{% for treasure in treasures %}
@@ -231,7 +231,7 @@ Let's install it!
 
 	```css
 	h1 {
-		color: green;
+	color: green;
 	}
 	```
 
@@ -258,7 +258,7 @@ You should now have a boring but completely functional application that will pul
 
 # Connecting a model to our view
 
-1.  Lets create a `model` of our Treasure instead of storing it hardcoded in our views.py. This will allow us to easily create new Treasure and keeps the 'MVC' framework robust. In our `main_app/models.py` file, change the code to reflect the following:
+1.  Let's create a `model` of our Treasure instead of storing it hardcoded in our views.py. This will allow us to easily create new Treasure and keeps the 'MVC' framework robust. In our `main_app/models.py` file, change the code to reflect the following:
 
 	```python
 	# main_app/models.py
@@ -269,40 +269,39 @@ You should now have a boring but completely functional application that will pul
 	    value = models.DecimalField(max_digits=10, decimal_places=2)
 	    material = models.CharField(max_length=100)
 	    location = models.CharField(max_length=100)
-
 	```
 
 2.  We will also need to run a `migration`. A migration is a database action that makes any necessary changes to your db tables to prepare for storing specific data attributes of your models. Think of it as a construction team building a house to your specifications.
 
-	- Enter the following into your terminal:
+	Enter the following into your terminal:
 
-		```bash
-		python3 manage.py makemigrations
-		```
+	```
+	python3 manage.py makemigrations
+	```
 	This wil prepare a file to execute your database changes
 
-	- Enter this command to execute the migration:
+	Enter this command to execute the migration:
 
-		```bash
-		python3 manage.py migrate
-		```
+	```
+	python3 manage.py migrate
+	```
 	Separate steps let you review the migration before you actually run `migrate`
-3.  Lets jump into the `Django Interactive Shell` to play with the database for our Treasures!
+3.  Let's jump into the `Django Interactive Shell` to play with the database for our Treasures!
 
 	In your terminal:
 
-	```bash
+	```
 	python3 manage.py shell
 	```
 
-	Now lets connect to our Treasure db:
+	Now let's connect to our Treasure db:
 
-	```bash
+	```
 	from main_app.models import Treasure
 	```
 	To see all of our Treasure models, enter this command:
 
-	```bash
+	```
 	Treasure.objects.all()
 	```
 	
@@ -310,15 +309,15 @@ You should now have a boring but completely functional application that will pul
 	
 	Looks like we have an empty array, which means we have no data yet!
 
-	Lets add some data!
+	Let's add some data!
 
-	```bash
+	```
 	t = Treasure(name="Coffee Can", value=20.00, location='Acme, CA', material='Tin')
 	t.save()
 
 	```
 
-	If you call `Treasure.objects.all()` again you'll see a Treasure Object exists!  Lets add a `__str__` method in our model to make this prettier:
+	If you call `Treasure.objects.all()` again you'll see a Treasure Object exists!  Let's add a `__str__` method in our model to make this prettier:
 
 	```python
 	# main_app/models.py
@@ -328,7 +327,7 @@ You should now have a boring but completely functional application that will pul
 
 	```
 
-4. 	Now lets update our views.py to use our models! Remember to remove your Treasure class definition, we won't need that where we're going.
+4. 	Now let's update our views.py to use our models! Remember to remove your Treasure class definition, we won't need that where we're going.
 
 	```python
 	# main_app/views.py
@@ -338,7 +337,6 @@ You should now have a boring but completely functional application that will pul
 	def index(request):
 	    treasures = Treasure.objects.all()
 	    return render(request, 'index.html', {'treasures':treasures})
-
 	```
 
 5.  Reload your page and you should see a single Treasure displayed from your database!  You're a wizard, Harry!
@@ -347,13 +345,13 @@ You should now have a boring but completely functional application that will pul
 
 # I am the ADMIN!
 
-6.  One last really really REALLY neat thing:  Django comes with a admin back-end administrator cooked in!  Let's use it!
+6. One last really really REALLY neat thing:  Django comes with a admin back-end administrator cooked in!  Let's use it!
 
-We need to create a super user ( a mega admin ) to allow us to log in initially and create other users and data.  Run this command in the terminal:
+	We need to create a super user ( a mega admin ) to allow us to log in initially and create other users and data.  Run this command in the terminal:
 
-	```bash
-		python manage.py createsuperuser
 	```
+	python manage.py createsuperuser
+	```	
 
 	You will prompted to enter a username, email address, and a password. You are now creating a 'web master' for your site!
 
